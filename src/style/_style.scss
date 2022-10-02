@@ -45,7 +45,7 @@ body {
     width: 38%;
     font-size: 20px;
     margin-right: 8%;
-    transition: all 1.5s ease-in-out;
+    overflow-y: scroll;
 
     a {
         text-decoration: none;
@@ -69,12 +69,17 @@ body {
         
     .header_burger_container {
 
+        #second, #third {
+            transition: all 0.7s ease-in-out;
+        }
+
         
 
         li {
             border-top: 1.62px $font_global-white solid;
             height: calc(1.62px + 4px);
-            transition: all 0.7s ease-in-out;
+            
+            
             
 
         }
@@ -143,6 +148,8 @@ body {
     }
 }
 
+
+
 @media (max-width: 780px) {
     .header__burger {
         transform: translateY(0);
@@ -154,7 +161,7 @@ body {
 
     .header__menu {
         min-width: 60%;
-        height: 80vh;
+        height: $menu_height1;
         background-color: $header_background_color;
         position: absolute;
         top: 0;
@@ -168,10 +175,10 @@ body {
         
         li {
             width: 100%;
-            height: calc(80vh / 4);
-            font-size: 37px;
+            height: calc($menu_height1 / 4);
+            font-size: $menu_font_size;
             text-align: center;
-            padding-top: calc(10vh - (37px / 2));
+            padding-top: calc(($menu_height1 / 8) - ($menu_font_size / 2));
             
         }
 
@@ -195,7 +202,20 @@ body {
         max-height: 55px;
     }
 
+    .header__menu {
+
+        height: $menu_height2;
+
+        li {
+            height: calc($menu_height2 / 4);
+            padding-top: calc(($menu_height2 / 8) - ($menu_font_size / 2));
+        }
+    }
+
 }
+
+
+
 
 
 
