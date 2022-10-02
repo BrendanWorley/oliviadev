@@ -86,7 +86,7 @@ body {
 
 .rightShift {
     animation: rightShift;
-    animation-duration: 0.4s;
+    animation-duration: 0.45s;
 }
 
 @keyframes rightShift {
@@ -106,7 +106,7 @@ body {
 
 .leftShift {
     animation: leftShift;
-    animation-duration: 0.4s;
+    animation-duration: 0.45s;
 }
 
 @keyframes leftShift {
@@ -124,7 +124,7 @@ body {
     }
 }
 
-//at media benchmarks
+//at media benchmarks -------------------------------------------------------------------------
 @media (min-width: 1440px) {
     .header__title {
         font-size: 30px;
