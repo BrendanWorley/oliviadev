@@ -45,7 +45,7 @@ body {
     width: 38%;
     font-size: 20px;
     margin-right: 8%;
-    overflow-y: scroll;
+    
 
     a {
         text-decoration: none;
@@ -127,6 +127,10 @@ body {
     40%, 60% {
         transform: translateX(-50%);
     }
+}
+
+._low {
+    height: 55px;
 }
 
 //at media benchmarks -------------------------------------------------------------------------
@@ -213,6 +217,8 @@ body {
     }
 
 }
+
+
 
 
 
