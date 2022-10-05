@@ -4,10 +4,14 @@ $body_background_color: #5A5757;
 $wrapper_background_color: lightpink;
 $header_title_color: rgba(182, 179, 70, 1);
 
+
 $font-family_Mavel-Poster: 'MavelPoster-Black';
 $font-family_Kurye: 'Kurye-Light';
+$font-family_PalaceScriptMT: 'PalaceScriptMT';
+$font_golden_font: rgba(255, 200, 126, 1);
 $font_global-white: rgba(255, 255, 255, 1);
 $menu_font_size: 37px;
+
 
 $menu_height1: calc(100vh - 77px);
 $menu_height2: calc(100vh - 55px);
@@ -23,6 +27,10 @@ $menu_height2: calc(100vh - 55px);
 
 @mixin font-size-360-780($fminpx, $fmin, $fmax) {
     font-size: calc($fminpx + ($fmax - $fmin + ($fmax - $fmin) * 0.7) * ((100vw - 360px) / 780));
+}
+
+@mixin box-font-padding-top($boxH, $fontH) {
+    padding-top: calc(($boxH / 2) - ($fontH / 2));
 }
 
 
