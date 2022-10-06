@@ -27,6 +27,7 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    z-index: 4;
 
     
 }
@@ -143,11 +144,12 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    align-items: center;
     margin: 0 auto;
     background-size: auto;
     background-position: bottom;
     overflow: hidden;
-    // position: relative;
+    
     
 }
 
@@ -157,6 +159,7 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
+    z-index: 3;
 
     .op2022__title__line1 {
         font-family: $font-family_PalaceScriptMT;
@@ -192,10 +195,37 @@ body {
     }
 
     .op2022__title__button:active {
-        transform: scale(1.2);
+        transform: scale(1.1);
+    }
+
+        
+
+}
+
+.op2022__decorAward {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+
+    .op2022__decorAward__decor {
+        margin-bottom: 80px;
+        margin-left: -10px;
+    }
+
+    .op2022__decorAward__award {
+        margin-right: 114px;
+        margin-bottom: 40px;
     }
 
 }
+
+
+
+
 
 //at media benchmarks -------------------------------------------------------------------------
 @media (min-width: 1440px) {
@@ -215,11 +245,30 @@ body {
     }
 }
 
+.op2022__decorAward__decor {
+    transform: translateY(10%);
+}
+
 @media (max-width: 1250px) {
     
     .op2022 {
         background-position: bottom;
     }
+
+    .op2022__decorAward__award {
+        transform: translateX(15%);
+    }
+}
+
+@media (max-width: 1100px) {
+    .op2022__decorAward__decor {
+        transform: translateX(-30%) translateY(10%);
+    }
+
+    .op2022__decorAward__award {
+        transform: translateX(30%);
+    }
+
 }
 
 @media (max-width: 950px) {
@@ -227,16 +276,31 @@ body {
         min-width: 50%;
     }
 
-    // .op2022 {
-    //     background-position: 40% 70%;
-    // }
+    .op2022__decorAward__decor {
+        transform: translateX(-35%) translateY(15%);
+    }
 
+    .op2022__decorAward__award {
+        display: none;
+    }
     
 }
 
+@media (max-width: 850px) {
+    .op2022__decorAward__decor {
+        transform: translateX(-50%) translateY(15%);
+    }
+
+}
 
 
 @media (max-width: 780px) {
+    
+    
+    .op2022__decorAward__decor {
+        display: none;
+    }
+    
     .header__burger {
         transform: translateY(0);
     }
@@ -249,6 +313,7 @@ body {
         min-width: 60%;
         height: $menu_height1;
         background-color: $header_background_color;
+        opacity: 0;
         position: absolute;
         top: 0;
         right: 0;
@@ -256,6 +321,7 @@ body {
         transform: translateY(-100%);
         flex-wrap: wrap;
         opacity: 1.0;
+        
         
         
         

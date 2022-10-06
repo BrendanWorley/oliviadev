@@ -12,7 +12,7 @@ window.addEventListener('resize', lowCheck);
 
 const burger = document.querySelector('.header__burger');
 const headerMenu = document.querySelector('.header__menu');
-
+const wrapper = document.querySelector('.wrapper');
 const header = document.querySelector('.header');
 
 
@@ -29,13 +29,14 @@ function burgerOps() {
                 headerMenu.style.transform = 'translateY(77px)';
                 headerMenu.style.transition = 'all 1.5s ease-in-out'; //
                             
-                console.log(headerMenu.clientHeight);
+                
             } else if (visualViewport.width <= 450) {
                 headerMenu.style.transform = 'translateY(55px)';
                 headerMenu.style.transition = 'all 1.5s ease-in-out'; //
                 
                 }
             menuStatus = 'opened'
+            wrapper.classList.toggle('_blocked');
             document.querySelector('#first').style.visibility = 'hidden';
             document.querySelector('#fourth').style.visibility = 'hidden';
             document.querySelector('#second').style.transform = 'translateY(5px) rotate(-45deg)';
