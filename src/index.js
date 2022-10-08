@@ -14,6 +14,8 @@ const burger = document.querySelector('.header__burger');
 const headerMenu = document.querySelector('.header__menu');
 const wrapper = document.querySelector('.wrapper');
 const header = document.querySelector('.header');
+const container = document.querySelector('.container');
+const op2022 = document.querySelector('.op2022');
 
 
 let menuStatus = 'closed';
@@ -36,13 +38,16 @@ function burgerOps() {
                 
                 }
             menuStatus = 'opened'
-            wrapper.classList.toggle('_blocked');
+            document.body.style.overflow = 'hidden';
+            // container.classList.add('_blocked');
             document.querySelector('#first').style.visibility = 'hidden';
             document.querySelector('#fourth').style.visibility = 'hidden';
             document.querySelector('#second').style.transform = 'translateY(5px) rotate(-45deg)';
             document.querySelector('#third').style.transform = 'rotate(45deg) translateX(-2px) translateY(2px)';
                    
             } else if (menuStatus === "opened") {
+            document.body.style.overflow = 'auto';
+                // container.classList.remove('_blocked');
             headerMenu.style.transform = 'translateY(-500%)';
             headerMenu.style.transition = 'all 1.5s ease-in-out'; //
             document.querySelector('#first').style.visibility = 'visible';
@@ -51,7 +56,7 @@ function burgerOps() {
             document.querySelector('#third').style.transform = 'rotate(0deg) translateX(0) translateY(0)';
                 
             menuStatus = 'closed'
-            }
+            } 
     
 }
 
@@ -138,7 +143,23 @@ burgerContainer.addEventListener('mouseover', () => {
         document.querySelector('#third').classList.remove("rightShift");
         document.querySelector('#second').classList.remove("leftShift");
         document.querySelector('#fourth').classList.remove("leftShift");
-    })
-})
+    });
+});
+
+// book table shadow animation -------------------------------------------------------
+
+
+
+const bookTableShadow = document.querySelector('.op2022__title__button_shadow');
+
+bookTableShadow.addEventListener('click', () => {
+    
+    bookTableShadow.animate([
+        {scale: 1, opacity: 0, easing: 'ease-out'},
+        {scale: 1.9, opacity: 0.20, easing: 'ease-out'},
+        {scale: 1.91, opacity: 0, easing: 'ease-out'},
+    ], 600);
+
+});
 
 

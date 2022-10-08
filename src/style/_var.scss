@@ -10,6 +10,7 @@ $font-family_Kurye: 'Kurye-Light';
 $font-family_PalaceScriptMT: 'PalaceScriptMT';
 $font_golden_font: rgba(255, 200, 126, 1);
 $font_global-white: rgba(255, 255, 255, 1);
+$font_global-black: rgba(0, 0, 0, 1);
 $menu_font_size: 37px;
 
 
@@ -32,6 +33,38 @@ $menu_height2: calc(100vh - 55px);
 @mixin box-font-padding-top($boxH, $fontH) {
     padding-top: calc(($boxH / 2) - ($fontH / 2));
 }
+
+@mixin ourStory-style-main-container {
+    max-width: 1182px;
+    max-height: 540px;
+    margin-lef: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 7%;
+    margin-bottom: 7%;
+}
+
+@mixin ourStory-style-image($bgimgURL, $width, $height) {
+    width: $width;
+    height: $height;
+    background-image: url($bgimgURL);
+    background-position: top;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@mixin ourStory-style-textdiv {
+    padding-left: 22px;
+    padding-right: 22px;
+    padding-top: auto;
+    padding-bottom: auto;
+}
+
+
+
 
 
 
