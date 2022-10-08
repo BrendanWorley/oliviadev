@@ -34,33 +34,112 @@ $menu_height2: calc(100vh - 55px);
     padding-top: calc(($boxH / 2) - ($fontH / 2));
 }
 
-@mixin ourStory-style-main-container {
+@mixin ourStory-style-main-container($marginTop, $marginBottom) {
     max-width: 1182px;
-    max-height: 540px;
-    margin-lef: auto;
+    // max-height: 540px;
+    margin-left: auto;
     margin-right: auto;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
-    margin-top: 7%;
-    margin-bottom: 7%;
-}
+    margin-top: $marginTop;
+    margin-bottom: $marginBottom;
+};
 
-@mixin ourStory-style-image($bgimgURL, $width, $height) {
+@mixin ourStory-style-image($bgimgURL, $width, $height, $marginLeft, $marginRight) {
     width: $width;
     height: $height;
     background-image: url($bgimgURL);
     background-position: top;
-    margin-left: auto;
-    margin-right: auto;
-}
+    margin-left: $marginLeft;
+    margin-right: $marginRight;
+};
 
-@mixin ourStory-style-textdiv {
-    padding-left: 22px;
-    padding-right: 22px;
+@mixin ourStory-style-textdiv($padLeft, $padRight, $width, $maxHeight) {
+    padding-left: $padLeft;
+    padding-right: $padRight;
     padding-top: auto;
     padding-bottom: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    max-width: 580px;
+    min-width: 503px;
+    width: $width;
+    max-height: $maxHeight;
+};
+
+@mixin ourStory-style-header($maxWidth) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: $maxWidth;
+    margin-left: auto;
+    margin-right: auto;
+};
+
+@mixin ourStory-style-vertDecor($padLeft, $padRight, $maxWidth, $maxHeight) {
+    padding-left: $padLeft;
+    padding-right: $padRight;
+    max-width: $maxWidth;
+    max-height: $maxHeight;
+    align-self: flex-end;
+};
+
+
+
+@mixin ourStory-style-header-lines {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+@mixin ourStory-style-header-line1($fsize) {
+    font-family: 'PalaceScriptMT';
+    font-size: $fsize;
+    text-align: start;
+    color: $font_golden_font;
+};
+
+@mixin ourStory-style-header-line2($fsize) {
+    font-family: 'Kurye-Light';
+    font-size: $fsize;
+    text-align: start;
+    color: $font_global-black;
+};
+
+@mixin ourStory-style-maintext($fsize, $lineHeight, $marginTop, $marginBottom, $maxWidth) {
+    font-size: $fsize;
+    line-height: $lineHeight;
+    font-family: 'Poppins-Regular';
+    margin-top: $marginTop;
+    text-align: justify;
+    margin-bottom: $marginBottom;
+    max-width: $maxWidth;
+    margin-left: auto;
+    margin-right: auto;
+};
+
+@mixin ourStory-button($width, $height, $fsize, $bradius, $padTop) {
+    width: $width;
+    height: $height;
+    font-family: 'Kurye-Light';
+    font-size: $fsize;
+    border: 1px $font_global-black solid;
+    border-radius: $bradius;
+    padding-top: $padTop;
+    text-align: center;
+    // align-self: flex-end;
+    margin-bottom: 64px;
+    margin-top: 20px;
+    margin-left: calc(100% - $width);
+    cursor: pointer;
 }
 
 
