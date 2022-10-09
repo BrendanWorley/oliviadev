@@ -245,7 +245,7 @@ body {
 }
 
 .ourStory {
-    @include ourStory-style-main-container(7%, 7%);
+    @include ourStory-style-main-container(100px, 100px);
 
     .ourStory__text {
         @include ourStory-style-textdiv(22px, 22px, 580px, 600px);
@@ -327,7 +327,7 @@ body {
     .ourStory {
 
         .ourStory__pic {
-            @include ourStory-style-image("images/ourstory.png", 360px, 360px, 0px, 0px);
+            @include ourStory-style-image("images/ourstory.png", 450px, 450px, 0px, 0px);
         } 
 
     }
@@ -380,10 +380,33 @@ body {
     .ourStory {
 
         .ourStory__text {
-            @include ourStory-style-textdiv(22px, 22px, 73vw, 600px)
-        }
+            @include ourStory-style-textdiv(0px, 0px, 73vw, 600px);
 
-    }
+            
+            
+    
+                .ourStory__text__header {
+                    @include ourStory-style-header(73vw);
+        
+                    .ourStory__text__header_png {
+                        @include ourStory-style-vertDecor(10px, 10px, 81px, 84px);
+                    };
+        
+                    .ourStory__text__header_lines {
+                        .ourStory__text__header_lines_line1 {
+                            @include ourStory-style-header-line1(59px);
+                        };
+        
+                        .ourStory__text__header_lines_line2 {
+                            @include ourStory-style-header-line2(48px);
+                        };
+                    };
+                };
+            
+
+        };
+
+    };
     
     .op2022__decorAward__decor {
         display: none;
@@ -438,6 +461,9 @@ body {
 @media (max-width: 600px) {
 
 .ourStory {
+
+    @include ourStory-style-main-container(64px, 64px);
+
     .ourStory__text {
       
         .ourStory__text__header__mainText {
