@@ -273,36 +273,32 @@ body {
             
             .ourStory_button {
                 @include ourStory-button(140px, 57px, 20px, 15px, 15px);
-            }
+            };
         
         };
-
-        
-        
-        
 
     };
 
     .ourStory__pic {
         @include ourStory-style-image("images/ourstory.png", 540px, 540px, 60px, 0px);
-    }
+    };
 
     
 };
 
-.ourStory_button:active {
+.ourStory_button:active, .menu_button:active {
     transform: scale(1.1);
-}
+};
 
 .sandwich {
     max-width: 1440px;
-    max-height: 760px;
+    // max-height: 45vh;
     background-image: url('images/sandwich.png');
     background-repeat: no-repeat;
-    background-position: center;
-    background-size: 1440px, 760px;
+    background-position: top;
+    background-size: 190vh, 100vh;
     width: 100%;
-    height: 53vw;
+    height: 50vh;
     background-attachment: fixed;
     display: flex;
     flex-direction: row;
@@ -315,10 +311,88 @@ body {
         color: $font_global-white;
         margin-bottom: 6.1%;
         margin-left: 7.8%;
-    }
+    };
 
-}
+};
 
+.menu {
+    @include ourStory-style-main-container(100px, 100px);
+
+    .menu__text {
+        @include ourStory-style-textdiv(22px, 22px, 580px, 600px);
+
+        .menu__text__header {
+            @include ourStory-style-header(100%);
+
+            .menu__text__header_png {
+                @include ourStory-style-vertDecor(22px, 22px, 113px, 93px);
+            };
+
+            .menu__text__header_lines {
+                .menu__text__header_lines_line1 {
+                    @include ourStory-style-header-line1(78px);
+                };
+
+                .menu__text__header_lines_line2 {
+                    @include ourStory-style-header-line2(64px);
+                };
+            };
+        };
+
+        .menu__text__header__mainText {
+            @include ourStory-style-maintext(16px, 25px, 20px, 20px, 100%);
+            
+            .menu_button {
+                @include ourStory-button(173px, 57px, 20px, 15px, 15px);
+            };
+        
+        };
+
+    };
+
+    .menu__pic {
+        @include ourStory-style-image("images/group1.png", 540px, 540px, 60px, 0px);
+    };
+
+};
+
+.twins {
+    max-width: 1181px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 654px;
+    margin-top: -106px;
+};
+
+.twins__twin1 {
+    height: 540px;
+    width: 249px;
+    background-image: url('images/twin1.png');
+    background-position: center;
+    background-size: cover;
+    align-self: flex-start;
+};
+
+.twins__twin2 {
+    height: 540px;
+    width: 249px;
+    background-image: url('images/twin2.png');
+    background-position: center;
+    background-size: cover;
+    align-self: flex-end;
+};
+
+.twins__downDecor {
+    height: 284px;
+    width: 207px;
+    background-image: url('images/downDecor.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    align-self: center;
+};
 
 
 
@@ -353,7 +427,15 @@ body {
             @include ourStory-style-image("images/ourstory.png", 450px, 450px, 0px, 0px);
         } 
 
-    }
+    };
+
+    .menu {
+
+        .menu__pic {
+            @include ourStory-style-image("images/group1.png", 450px, 450px, 0px, 0px);
+        } 
+
+    };
     
     .op2022 {
         background-position: bottom;
@@ -400,9 +482,15 @@ body {
 
 @media (max-width: 780px) {
    
+    .twins {
+        display: none;
+    }
+    
     .sandwich {
 
         background-position: 60%;
+        height: 35vh;
+
 
         .sandwich__title {
             font-size: 35px;
@@ -440,6 +528,41 @@ body {
 
     };
     
+//---------------------------------
+.menu {
+
+    .menu__text {
+            @include ourStory-style-textdiv(0px, 0px, 73vw, 600px);
+
+        
+        
+
+            .menu__text__header {
+                @include ourStory-style-header(73vw);
+    
+                .menu__text__header_png {
+                    @include ourStory-style-vertDecor(10px, 10px, 81px, 84px);
+                };
+    
+                .menu__text__header_lines {
+                    .menu__text__header_lines_line1 {
+                        @include ourStory-style-header-line1(59px);
+                    };
+    
+                    .menu__text__header_lines_line2 {
+                        @include ourStory-style-header-line2(48px);
+                    };
+                };
+            };
+        
+
+    };
+
+};
+
+//-------------------------------
+
+
     .op2022__decorAward__decor {
         display: none;
     }
@@ -494,7 +617,7 @@ body {
 
     .sandwich {
         background-position: 70%;
-        height: 70vw;
+        
     }
 
     .ourStory {
@@ -502,6 +625,14 @@ body {
         @include ourStory-style-main-container(64px, 64px);
 
         .ourStory__text {
+
+            .ourStory__text__header {
+                .ourStory__text__header_lines {
+                    .ourStory__text__header_lines_line1 {
+                        @include ourStory-style-header-line1(50px);
+                    };
+                };
+            };
       
             .ourStory__text__header__mainText {
                 @include ourStory-style-maintext(16px, 25px, 20px, 20px, 73vw);
@@ -518,6 +649,38 @@ body {
         }
     }
     
+// ---------------------------------------------------
+.menu {
+
+    @include ourStory-style-main-container(64px, 64px);
+
+    .menu__text {
+
+        .menu__text__header {
+            .menu__text__header_lines {
+                .menu__text__header_lines_line1 {
+                    @include ourStory-style-header-line1(50px);
+                };
+            };
+        };
+  
+        .menu__text__header__mainText {
+            @include ourStory-style-maintext(16px, 25px, 20px, 20px, 73vw);
+        };
+
+        .menu_button {
+            @include ourStory-button(140px, 57px, 20px, 15px, 13px);
+        }
+  
+    };
+
+    .menu__pic {
+        @include ourStory-style-image("./images/group1.png", 360px, 360px, auto, auto);
+    }
+}
+//---------------------------------------------------
+
+
     .header__menu {
         min-width: 100%;
     }
@@ -557,9 +720,9 @@ body {
 @media (max-width: 450px) {
    
     .sandwich {
-        height: 75vw;
-        background-size: 1000px, 526px;
-    }
+        height: 50vh;
+        background-size: 190vh, 100vh;
+    };
     
     .ourStory {
         
@@ -590,25 +753,56 @@ body {
                 
                 .ourStory_button {
                     @include ourStory-button(101px, 37px, 16px, 8px, 6px);
-                }
+                };
             
             };
     
-            
-            
-            
-    
         };
-    
-        
-    
         
     };
     
+    //---------------------------------------
+    .menu {
+        
+    
+        .menu__text {
+            
+    
+            .menu__text__header {
+                @include ourStory-style-header(73vw);
+    
+                .menu__text__header_png {
+                    @include ourStory-style-vertDecor(10px, 10px, 56px, 70px);
+                };
+    
+                .menu__text__header_lines {
+                    .menu__text__header_lines_line1 {
+                        @include ourStory-style-header-line1(40px);
+                    };
+    
+                    .menu__text__header_lines_line2 {
+                        @include ourStory-style-header-line2(32px);
+                    };
+                };
+            };
+    
+            .menu__text__header__mainText {
+                
+                
+                .menu_button {
+                    @include ourStory-button(124px, 37px, 16px, 8px, 6px);
+                };
+            
+            };
+    
+        };
+        
+    };
+    //---------------------------------------
     
     .header {
         max-height: 55px;
-    }
+    };
 
     .header__menu {
 
@@ -617,21 +811,21 @@ body {
         li {
             height: calc($menu_height2 / 4);
             padding-top: calc(($menu_height2 / 8) - ($menu_font_size / 2));
-        }
-    }
+        };
+    };
 
     .op2022_title {
         .op2022__title__line1 {
             font-size: 72px;
-        }
+        };
 
         .op2022__title__line2 {
             font-size: 48px;
-        }
+        };
 
         .op2022__title__line3 {
             font-size: 38px;
-        }
+        };
 
         .op2022__title__button {
             font-size: 16px;
@@ -645,13 +839,13 @@ body {
             div {
                 width: 124px;
                 height: 46px;
-            }
+            };
 
-        }
-    }
+        };
+    };
     
 
-}
+};
 
 
 

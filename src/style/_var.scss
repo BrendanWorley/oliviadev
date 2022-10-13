@@ -8,7 +8,7 @@ $header_title_color: rgba(182, 179, 70, 1);
 $font-family_Mavel-Poster: 'MavelPoster-Black';
 $font-family_Kurye: 'Kurye-Light';
 $font-family_PalaceScriptMT: 'PalaceScriptMT';
-$font_golden_font: rgba(255, 200, 126, 1);
+$font_golden_font: rgb(209, 125, 15);
 $font_global-white: rgba(255, 255, 255, 1);
 $font_global-black: rgba(0, 0, 0, 1);
 $menu_font_size: 37px;
@@ -52,7 +52,8 @@ $menu_height2: calc(100vh - 55px);
     width: $width;
     height: $height;
     background-image: url($bgimgURL);
-    background-position: top;
+    background-position: center;
+    background-size: cover;
     margin-left: $marginLeft;
     margin-right: $marginRight;
 };
@@ -77,11 +78,12 @@ $menu_height2: calc(100vh - 55px);
 @mixin ourStory-style-header($maxWidth) {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     max-width: $maxWidth;
-    margin-left: auto;
-    margin-right: auto;
+    // margin-left: auto;
+    // margin-right: auto;
+    
 };
 
 @mixin ourStory-style-vertDecor($padLeft, $padRight, $maxWidth, $maxHeight) {
@@ -124,6 +126,7 @@ $menu_height2: calc(100vh - 55px);
     max-width: $maxWidth;
     margin-left: auto;
     margin-right: auto;
+    max-width: 482px;
 };
 
 @mixin ourStory-button($width, $height, $fsize, $bradius, $padTop) {
