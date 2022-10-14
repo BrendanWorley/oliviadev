@@ -286,7 +286,7 @@ body {
     
 };
 
-.ourStory_button:active, .menu_button:active {
+.ourStory_button:active, .menu_button:active, .catering_button:active, .chefs_button:active {
     transform: scale(1.1);
 };
 
@@ -296,7 +296,7 @@ body {
     background-image: url('images/sandwich.png');
     background-repeat: no-repeat;
     background-position: top;
-    background-size: 190vh, 100vh;
+    background-size: 228vh, 120vh;
     width: 100%;
     height: 50vh;
     background-attachment: fixed;
@@ -394,11 +394,118 @@ body {
     align-self: center;
 };
 
+.catering {
+    @include ourStory-style-main-container(100px, 100px);
 
+    .catering__text {
+        order: 1;
+        @include ourStory-style-textdiv(22px, 22px, 580px, 600px);
+
+        .catering__text__header {
+            @include ourStory-style-header(100%);
+
+            .catering__text__header_png {
+                @include ourStory-style-vertDecor(22px, 22px, 113px, 93px);
+            };
+
+            .catering__text__header_lines {
+                .catering__text__header_lines_line1 {
+                    @include ourStory-style-header-line1(78px);
+                };
+
+                .catering__text__header_lines_line2 {
+                    @include ourStory-style-header-line2(64px);
+                };
+            };
+        };
+
+        .catering__text__header__mainText {
+            @include ourStory-style-maintext(16px, 25px, 20px, 20px, 100%);
+            
+            .catering_button {
+                @include ourStory-button(173px, 57px, 20px, 15px, 15px);
+            };
+        
+        };
+
+    };
+
+    .catering__pic {
+        @include ourStory-style-image("images/group2.png", 540px, 540px, 0px, 60px);
+    };
+
+};
+
+.range {
+    max-width: 1440px;
+    max-height: 760px;
+    width: 100%;
+    height: 53vw;
+    background-image: url('images/wiskey.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+};
+
+.range__title {
+    font-family: 'Kurye-Light';
+    font-size: 50px;
+    color: $font_global-white;
+    margin-bottom: 6.1%;
+    margin-right: 7.8%;
+};
+
+.chefs {
+    @include ourStory-style-main-container(100px, 100px);
+
+    .chefs__text {
+        @include ourStory-style-textdiv(22px, 22px, 580px, 600px);
+
+        .chefs__text__header {
+            @include ourStory-style-header(100%);
+
+            .chefs__text__header_png {
+                @include ourStory-style-vertDecor(22px, 22px, 113px, 93px);
+            };
+
+            .chefs__text__header_lines {
+                .chefs__text__header_lines_line1 {
+                    @include ourStory-style-header-line1(78px);
+                };
+
+                .chefs__text__header_lines_line2 {
+                    @include ourStory-style-header-line2(64px);
+                };
+            };
+        };
+
+        .chefs__text__header__mainText {
+            @include ourStory-style-maintext(16px, 25px, 20px, 20px, 100%);
+            
+            .chefs_button {
+                @include ourStory-button(173px, 57px, 20px, 15px, 15px);
+            };
+        
+        };
+
+    };
+
+    .chefs__pic {
+        @include ourStory-style-image("images/chefsword.png", 540px, 540px, 60px, 0px);
+    };
+
+};
 
 
 //at media benchmarks -------------------------------------------------------------------------
 @media (min-width: 1440px) {
+    
+    
     .header__title {
         font-size: 30px;
     }
@@ -436,6 +543,22 @@ body {
         } 
 
     };
+
+    .catering {
+
+        .catering__pic {
+            @include ourStory-style-image("images/group2.png", 450px, 450px, 0px, 0px);
+        } 
+
+    };
+
+    .chefs {
+
+        .chefs__pic {
+            @include ourStory-style-image("images/chefsword.png", 450px, 450px, 0px, 0px);
+        } 
+
+    };
     
     .op2022 {
         background-position: bottom;
@@ -447,6 +570,15 @@ body {
 }
 
 @media (max-width: 1100px) {
+    
+    .catering__pic {
+        order: 2;
+    }
+    
+    .twins {
+        margin-top: 0;
+    }
+    
     .op2022__decorAward__decor {
         transform: translateX(-30%) translateY(10%);
     }
@@ -458,6 +590,12 @@ body {
 }
 
 @media (max-width: 950px) {
+    
+    .range {
+        background-size: 150vw;
+        
+    }
+    
     .header__menu {
         min-width: 50%;
     }
@@ -561,8 +699,69 @@ body {
 };
 
 //-------------------------------
+.catering {
 
+    .catering__text {
+            @include ourStory-style-textdiv(0px, 0px, 73vw, 600px);
 
+        
+        
+
+            .catering__text__header {
+                @include ourStory-style-header(73vw);
+    
+                .catering__text__header_png {
+                    @include ourStory-style-vertDecor(10px, 10px, 81px, 84px);
+                };
+    
+                .catering__text__header_lines {
+                    .catering__text__header_lines_line1 {
+                        @include ourStory-style-header-line1(59px);
+                    };
+    
+                    .catering__text__header_lines_line2 {
+                        @include ourStory-style-header-line2(48px);
+                    };
+                };
+            };
+        
+
+    };
+
+};
+//-------------------------------
+.chefs {
+
+    .chefs__text {
+            @include ourStory-style-textdiv(0px, 0px, 73vw, 600px);
+
+        
+        
+
+            .chefs__text__header {
+                @include ourStory-style-header(73vw);
+    
+                .chefs__text__header_png {
+                    @include ourStory-style-vertDecor(10px, 10px, 81px, 84px);
+                };
+    
+                .chefs__text__header_lines {
+                    .chefs__text__header_lines_line1 {
+                        @include ourStory-style-header-line1(59px);
+                    };
+    
+                    .chefs__text__header_lines_line2 {
+                        @include ourStory-style-header-line2(48px);
+                    };
+                };
+            };
+        
+
+    };
+
+};
+
+//-------------------------------
     .op2022__decorAward__decor {
         display: none;
     }
@@ -679,7 +878,65 @@ body {
     }
 }
 //---------------------------------------------------
+.catering {
 
+    @include ourStory-style-main-container(64px, 64px);
+
+    .catering__text {
+
+        .catering__text__header {
+            .catering__text__header_lines {
+                .catering__text__header_lines_line1 {
+                    @include ourStory-style-header-line1(50px);
+                };
+            };
+        };
+  
+        .catering__text__header__mainText {
+            @include ourStory-style-maintext(16px, 25px, 20px, 20px, 73vw);
+        };
+
+        .catering_button {
+            @include ourStory-button(140px, 57px, 20px, 15px, 13px);
+        }
+  
+    };
+
+    .catering__pic {
+        @include ourStory-style-image("./images/group2.png", 360px, 360px, auto, auto);
+    }
+}
+//------------------------------------------------
+.chefs {
+
+    @include ourStory-style-main-container(64px, 64px);
+
+    .chefs__text {
+
+        .chefs__text__header {
+            .chefs__text__header_lines {
+                .chefs__text__header_lines_line1 {
+                    @include ourStory-style-header-line1(50px);
+                };
+            };
+        };
+  
+        .chefs__text__header__mainText {
+            @include ourStory-style-maintext(16px, 25px, 20px, 20px, 73vw);
+        };
+
+        .chefs_button {
+            @include ourStory-button(140px, 57px, 20px, 15px, 13px);
+        }
+  
+    };
+
+    .chefs__pic {
+        @include ourStory-style-image("./images/chefsword.png", 360px, 360px, auto, auto);
+    }
+}
+
+//------------------------------------------------
 
     .header__menu {
         min-width: 100%;
@@ -719,6 +976,10 @@ body {
 
 @media (max-width: 450px) {
    
+    .range {
+        display: none;
+    }
+    
     .sandwich {
         height: 50vh;
         background-size: 190vh, 100vh;
@@ -799,7 +1060,80 @@ body {
         
     };
     //---------------------------------------
+    .catering {
+        
     
+        .catering__text {
+            
+    
+            .catering__text__header {
+                @include ourStory-style-header(73vw);
+    
+                .catering__text__header_png {
+                    @include ourStory-style-vertDecor(10px, 10px, 56px, 70px);
+                };
+    
+                .catering__text__header_lines {
+                    .catering__text__header_lines_line1 {
+                        @include ourStory-style-header-line1(40px);
+                    };
+    
+                    .catering__text__header_lines_line2 {
+                        @include ourStory-style-header-line2(32px);
+                    };
+                };
+            };
+    
+            .catering__text__header__mainText {
+                
+                
+                .catering_button {
+                    @include ourStory-button(124px, 37px, 16px, 8px, 6px);
+                };
+            
+            };
+    
+        };
+        
+    };
+    //---------------------------------------
+    .chefs {
+        
+    
+        .chefs__text {
+            
+    
+            .chefs__text__header {
+                @include ourStory-style-header(73vw);
+    
+                .chefs__text__header_png {
+                    @include ourStory-style-vertDecor(10px, 10px, 56px, 70px);
+                };
+    
+                .chefs__text__header_lines {
+                    .chefs__text__header_lines_line1 {
+                        @include ourStory-style-header-line1(40px);
+                    };
+    
+                    .chefs__text__header_lines_line2 {
+                        @include ourStory-style-header-line2(32px);
+                    };
+                };
+            };
+    
+            .chefs__text__header__mainText {
+                
+                
+                .chefs_button {
+                    @include ourStory-button(124px, 37px, 16px, 8px, 6px);
+                };
+            
+            };
+    
+        };
+        
+    };
+    //---------------------------------------
     .header {
         max-height: 55px;
     };
