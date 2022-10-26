@@ -9,6 +9,8 @@ import { mult, sum } from './modules/calc';
 visualViewport.addEventListener('resize', recizeCheck);
 
 window.addEventListener('resize', lowCheck);
+window.addEventListener('resize', checkWinRatio);
+
 
 const burger = document.querySelector('.header__burger');
 const headerMenu = document.querySelector('.header__menu');
@@ -16,6 +18,8 @@ const wrapper = document.querySelector('.wrapper');
 const header = document.querySelector('.header');
 const container = document.querySelector('.container');
 const op2022 = document.querySelector('.op2022');
+const sandwich = document.querySelector('.sandwich');
+const sandwichTitle = document.querySelector('.sandwich__title');
 
 
 let menuStatus = 'closed';
@@ -101,16 +105,22 @@ function recizeCheck() {
 }
 
 // low height check --------------------------------------------------------------
-// const winRatio = window.innerWidth / window.innerHeight;
+// const winRatio = visualViewport.width / visualViewport.height;
 // console.log("window ratio: ", winRatio);
 
 
 // function checkWinRatio() {
-//     if (winRatio > 2.01 && visualViewport.width < 781 ) {
-//         headerMenu.style.overflowY = 'scroll';
-//         headerMenu.style.height = '400px';
-//     } 
-// }
+    
+//     if (winRatio >= 2.01) {
+//         sandwich.style.backgroundSize = '1440px';
+//         sandwichTitle.style.bottom = '0px';
+//         location.reload();
+//     } else if (winRatio < 2.01) {
+//         sandwich.style.backgroundSize = '228vh, 120vh';
+//         location.reload();
+//     };
+//     location.reload();
+// };
 
 function lowCheck() {
     if (visualViewport.width < 781 && visualViewport.height < 400) {

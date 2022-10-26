@@ -519,7 +519,8 @@ body {
 
 footer {
     width: 100%;
-    // min-height: 227px;
+    max-width: 1440px;
+    min-height: 227px;
     background-image: url('images/Rectangle 12.png');
     background-position: center;
     background-repeat: no-repeat;
@@ -532,14 +533,23 @@ footer {
     font-family: 'Kurye-Light';
     font-size: 20px;
     color: $font_global-white;
-    line-height: 5vh;
+    line-height: 45px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 
 };
 
+.footer__hours, .footer__address, .footer__contacts {
+    
+    min-height: 166px;
+    
+};
 
+.footer__contacts__contacts__icons {
+    margin-top: 12px;
+}
 
 .footer__contacts__fb {
     min-height: 27px;
@@ -618,7 +628,9 @@ footer {
     position: absolute;
     bottom: 0;
     right: 0;
-}
+};
+
+
 
 
 
@@ -694,13 +706,19 @@ footer {
     footer {
         flex-direction: column;
         align-items: flex-start;
+        justify-content: space-between;
         font-size: 18px;
+        min-height: 583px;
+        line-height: 33px;
+        
         
 
-        p {
-            margin-top: 30px;
-        };
+        
+    };
 
+    .footer__hours, .footer__address, .footer__contacts {
+    
+        min-height: 121px;
         
     };
 
@@ -709,9 +727,9 @@ footer {
     };
 
     .footer__decor {
-        display: block;
-        margin-right: 2%;
-        bottom: 84px;
+        display: inline-block;
+        margin-right: 1%;
+        bottom: 70px;
         
     }
 
@@ -1334,6 +1352,14 @@ footer {
     
 
 };
+
+@media (max-height: 630px) {
+    .sandwich {
+        background-size: 100%;
+    }
+}
+
+
 
 
 
