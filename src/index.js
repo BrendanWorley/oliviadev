@@ -9,7 +9,7 @@ import { mult, sum } from './modules/calc';
 visualViewport.addEventListener('resize', recizeCheck);
 
 window.addEventListener('resize', lowCheck);
-window.addEventListener('resize', checkWinRatio);
+
 
 
 const burger = document.querySelector('.header__burger');
@@ -101,8 +101,8 @@ function recizeCheck() {
                     document.querySelector('#third').style.transform = 'rotate(45deg) translateX(-2px) translateY(2px)';
                     document.querySelector('#first').style.visibility = 'hidden';
                     document.querySelector('#fourth').style.visibility = 'hidden'; 
-                    }
-}
+                    };
+};
 
 // low height check --------------------------------------------------------------
 // const winRatio = visualViewport.width / visualViewport.height;

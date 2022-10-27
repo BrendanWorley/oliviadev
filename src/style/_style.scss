@@ -295,8 +295,8 @@ body {
     // max-height: 45vh;
     background-image: url('images/sandwich.png');
     background-repeat: no-repeat;
-    background-position: top;
-    background-size: 228vh, 120vh;
+    background-position: bottom;
+    background-size:  228vh, 120vh;
     width: 100%;
     height: 50vh;
     background-attachment: fixed;
@@ -522,7 +522,7 @@ footer {
     max-width: 1440px;
     min-height: 227px;
     background-image: url('images/Rectangle 12.png');
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
     padding-left: 7.7%;
@@ -706,10 +706,11 @@ footer {
     footer {
         flex-direction: column;
         align-items: flex-start;
-        justify-content: space-between;
-        font-size: 18px;
+        justify-content: flex-end;
+        font-size: 16px;
         min-height: 583px;
         line-height: 33px;
+
         
         
 
@@ -718,7 +719,11 @@ footer {
 
     .footer__hours, .footer__address, .footer__contacts {
     
-        min-height: 121px;
+        max-height: 121px;
+        margin-top: 30px;
+        line-height: 32px;
+        min-height: 0px;
+        
         
     };
 
@@ -728,8 +733,8 @@ footer {
 
     .footer__decor {
         display: inline-block;
-        margin-right: 1%;
-        bottom: 70px;
+        margin-right: 5%;
+        bottom: 64px;
         
     }
 
@@ -784,6 +789,8 @@ footer {
 
 @media (max-width: 780px) {
    
+    
+    
     .twins {
         display: none;
     }
@@ -824,6 +831,10 @@ footer {
                         };
                     };
                 };
+
+                .ourStory__text__header__mainText {
+                    max-width: 100%;
+                };
             
 
         };
@@ -855,6 +866,10 @@ footer {
                         @include ourStory-style-header-line2(48px);
                     };
                 };
+            };
+
+            .menu__text__header__mainText {
+                max-width: 100%;
             };
         
 
@@ -888,6 +903,10 @@ footer {
                     };
                 };
             };
+
+            .catering__text__header__mainText {
+                max-width: 100%;
+            };
         
 
     };
@@ -918,6 +937,10 @@ footer {
                         @include ourStory-style-header-line2(48px);
                     };
                 };
+            };
+
+            .chefs__text__header__mainText {
+                max-width: 100%;
             };
         
 
@@ -1353,23 +1376,9 @@ footer {
 
 };
 
-@media (max-height: 630px) {
-    .sandwich {
-        background-size: 100%;
+@media (max-height: 640px) {
+    .footer {
+        background-size: 378vh, 200vh;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
