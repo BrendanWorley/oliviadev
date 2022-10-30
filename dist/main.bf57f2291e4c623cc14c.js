@@ -92,7 +92,71 @@ const header = document.querySelector('.header');
 const container = document.querySelector('.container');
 const op2022 = document.querySelector('.op2022');
 const sandwich = document.querySelector('.sandwich');
-const sandwichTitle = document.querySelector('.sandwich__title');
+const sandwichTitle = document.querySelector('.sandwich__title'); //-------------TRYING PROMISES-----------------------------------------
+
+const first = document.querySelector('#first');
+const second = document.querySelector('#second');
+const third = document.querySelector('#third');
+const fourth = document.querySelector('#fourth');
+const thirdMotionOpening = [{
+  transform: 'rotate(0deg) translateX(0) translateY(0)'
+}, {
+  transform: 'rotate(45deg) translateX(-2px) translateY(2px)'
+}];
+const thirdMotionClosing = [{
+  transform: 'rotate(45deg) translateX(-2px) translateY(2px)'
+}, {
+  transform: 'rotate(0deg) translateX(0) translateY(0)'
+}];
+const secondMotionOpening = [{
+  transform: 'translateY(0) rotate(0deg)'
+}, {
+  transform: 'translateY(5px) rotate(-45deg)'
+}];
+const secondMotionClosing = [{
+  transform: 'translateY(5px) rotate(-45deg)'
+}, {
+  transform: 'translateY(0) rotate(0deg)'
+}];
+const first_fourthMotionOpening = [{
+  visibility: 'hidden'
+}];
+const first_fourthMotionClosing = [{
+  visibility: 'visible'
+}];
+const motionTiming = {
+  duration: 1000,
+  iterations: 1,
+  fill: 'forwards'
+};
+const motionTiming2 = {
+  duration: 700,
+  iterations: 1,
+  fill: 'forwards'
+};
+
+async function openMotion() {
+  const fourthDisap = fourth.animate(first_fourthMotionOpening, motionTiming2);
+  const firstDisap = first.animate(first_fourthMotionOpening, motionTiming2);
+  await fourthDisap.finished;
+  await firstDisap.finished;
+  const secondMove = second.animate(secondMotionOpening, motionTiming);
+  const thirdMove = third.animate(thirdMotionOpening, motionTiming);
+}
+
+;
+
+async function closeMotion() {
+  const secondMoveBack = second.animate(secondMotionClosing, motionTiming);
+  const thirdMoveBack = third.animate(thirdMotionClosing, motionTiming);
+  await thirdMoveBack.finished;
+  await secondMoveBack.finished;
+  const firstReappear = first.animate(first_fourthMotionClosing, motionTiming2);
+  const fourthReappear = fourth.animate(first_fourthMotionClosing, motionTiming2);
+}
+
+; //--------------------------------------------------------------------
+
 let menuStatus = 'closed';
 burger.addEventListener('click', burgerOps);
 
@@ -104,6 +168,8 @@ function burgerOps() {
     if (visualViewport.width > 450) {
       headerMenu.style.transform = 'translateY(77px)';
       headerMenu.style.transition = 'all 1.5s ease-in-out'; //
+
+      openMotion();
     } else if (visualViewport.width <= 450) {
       headerMenu.style.transform = 'translateY(55px)';
       headerMenu.style.transition = 'all 1.5s ease-in-out'; //
@@ -112,24 +178,21 @@ function burgerOps() {
     menuStatus = 'opened';
     document.body.style.overflow = 'hidden'; // container.classList.add('_blocked');
 
-    document.querySelector('#first').style.visibility = 'hidden';
-    document.querySelector('#fourth').style.visibility = 'hidden';
-    document.querySelector('#second').style.transform = 'translateY(5px) rotate(-45deg)';
-    document.querySelector('#third').style.transform = 'rotate(45deg) translateX(-2px) translateY(2px)';
+    openMotion();
   } else if (menuStatus === "opened") {
     document.body.style.overflow = 'auto'; // container.classList.remove('_blocked');
 
     headerMenu.style.transform = 'translateY(-500%)';
     headerMenu.style.transition = 'all 1.5s ease-in-out'; //
 
-    document.querySelector('#first').style.visibility = 'visible';
-    document.querySelector('#fourth').style.visibility = 'visible';
-    document.querySelector('#second').style.transform = 'translateY(0) rotate(0deg)';
-    document.querySelector('#third').style.transform = 'rotate(0deg) translateX(0) translateY(0)';
+    closeMotion();
     menuStatus = 'closed';
   }
-} // viewport resize check ---------------------------------------------------
 
+  ;
+}
+
+; // viewport resize check ---------------------------------------------------
 
 function recizeCheck() {
   // checkWinRatio();
@@ -137,35 +200,23 @@ function recizeCheck() {
     headerMenu.style.transition = 'none'; //
 
     headerMenu.style.transform = 'translateY(0)';
-    document.querySelector('#second').style.transform = 'translateY(0) rotate(0deg)';
-    document.querySelector('#third').style.transform = 'rotate(0deg) translateX(0) translateY(0)';
-    document.querySelector('#first').style.visibility = 'visible';
-    document.querySelector('#fourth').style.visibility = 'visible';
+    closeMotion();
     menuStatus = 'closed';
   } else if (visualViewport.width < 781 && menuStatus === "closed") {
     headerMenu.style.transition = 'none'; //  
 
     headerMenu.style.transform = 'translateY(-500%)';
-    document.querySelector('#second').style.transform = 'translateY(0) rotate(0deg)';
-    document.querySelector('#third').style.transform = 'rotate(0deg) translateX(0) translateY(0)';
-    document.querySelector('#first').style.visibility = 'visible';
-    document.querySelector('#fourth').style.visibility = 'visible';
+    closeMotion();
   } else if (menuStatus === "opened" && visualViewport.width < 781 && visualViewport.width > 450) {
     headerMenu.style.transition = 'none'; //
 
     headerMenu.style.transform = 'translateY(77px)';
-    document.querySelector('#second').style.transform = 'translateY(5px) rotate(-45deg)';
-    document.querySelector('#third').style.transform = 'rotate(45deg) translateX(-2px) translateY(2px)';
-    document.querySelector('#first').style.visibility = 'hidden';
-    document.querySelector('#fourth').style.visibility = 'hidden';
+    openMotion();
   } else if (menuStatus === "opened" && visualViewport.width <= 450) {
     headerMenu.style.transition = 'none'; //
 
     headerMenu.style.transform = 'translateY(55px)';
-    document.querySelector('#second').style.transform = 'translateY(5px) rotate(-45deg)';
-    document.querySelector('#third').style.transform = 'rotate(45deg) translateX(-2px) translateY(2px)';
-    document.querySelector('#first').style.visibility = 'hidden';
-    document.querySelector('#fourth').style.visibility = 'hidden';
+    openMotion();
   }
 
   ;
@@ -11455,4 +11506,4 @@ module.exports = __webpack_require__.p + "fonts/mavel-poster.woff2";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=main.09d66e8dc1933ec7b4e7.js.map
+//# sourceMappingURL=main.bf57f2291e4c623cc14c.js.map
