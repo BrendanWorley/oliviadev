@@ -58,36 +58,69 @@ const first_fourthMotionClosing = [
     {visibility: 'visible'},
 ]; 
 
-const motionTiming = {
-    duration: 1000,
-    iterations: 1,
-    fill: 'forwards',
-};
+//********************************************************
+// const motionTiming = {
+//     duration: 0,
+//     iterations: 1,
+//     fill: 'forwards',
+// };
 
-const motionTiming2 = {
-    duration: 700,
-    iterations: 1,
-    fill: 'forwards',
-};
+// const motionTiming2 = {
+//     duration: 0,
+//     iterations: 1,
+//     fill: 'forwards',
+// };
 
-async function openMotion() {
-    const fourthDisap = fourth.animate(first_fourthMotionOpening, motionTiming2);
-    const firstDisap = first.animate(first_fourthMotionOpening, motionTiming2);
+async function openMotion(burgerDuration2, burgerDuration) {
+    const fourthDisap = fourth.animate(first_fourthMotionOpening, {duration: burgerDuration2, iterations: 1, fill: 'forwards',});
+    const firstDisap = first.animate(first_fourthMotionOpening, {duration: burgerDuration2, iterations: 1, fill: 'forwards',});
     await fourthDisap.finished;
     await firstDisap.finished;
-    const secondMove = second.animate(secondMotionOpening, motionTiming);
-    const thirdMove = third.animate(thirdMotionOpening, motionTiming);
+    const secondMove = second.animate(secondMotionOpening, {duration: burgerDuration, iterations: 1, fill: 'forwards',});
+    const thirdMove = third.animate(thirdMotionOpening, {duration: burgerDuration, iterations: 1, fill: 'forwards',});
     
 };
 
-async function closeMotion() {
-    const secondMoveBack = second.animate(secondMotionClosing, motionTiming);
-    const thirdMoveBack = third.animate(thirdMotionClosing, motionTiming);
+async function closeMotion(burgerDuration2, burgerDuration) {
+    const secondMoveBack = second.animate(secondMotionClosing, {duration: burgerDuration, iterations: 1, fill: 'forwards',});
+    const thirdMoveBack = third.animate(thirdMotionClosing, {duration: burgerDuration, iterations: 1, fill: 'forwards',});
     await thirdMoveBack.finished;
     await secondMoveBack.finished;
-    const firstReappear = first.animate(first_fourthMotionClosing, motionTiming2);
-    const fourthReappear = fourth.animate(first_fourthMotionClosing, motionTiming2);
+    const firstReappear = first.animate(first_fourthMotionClosing, {duration: burgerDuration2, iterations: 1, fill: 'forwards',});
+    const fourthReappear = fourth.animate(first_fourthMotionClosing, {duration: burgerDuration2, iterations: 1, fill: 'forwards',});
 };
+//********************************************************
+
+// const motionTiming = {
+//     duration: 0,
+//     iterations: 1,
+//     fill: 'forwards',
+// };
+
+// const motionTiming2 = {
+//     duration: 0,
+//     iterations: 1,
+//     fill: 'forwards',
+// };
+
+// async function openMotion() {
+//     const fourthDisap = fourth.animate(first_fourthMotionOpening, motionTiming2);
+//     const firstDisap = first.animate(first_fourthMotionOpening, motionTiming2);
+//     await fourthDisap.finished;
+//     await firstDisap.finished;
+//     const secondMove = second.animate(secondMotionOpening, motionTiming);
+//     const thirdMove = third.animate(thirdMotionOpening, motionTiming);
+    
+// };
+
+// async function closeMotion() {
+//     const secondMoveBack = second.animate(secondMotionClosing, motionTiming);
+//     const thirdMoveBack = third.animate(thirdMotionClosing, motionTiming);
+//     await thirdMoveBack.finished;
+//     await secondMoveBack.finished;
+//     const firstReappear = first.animate(first_fourthMotionClosing, motionTiming2);
+//     const fourthReappear = fourth.animate(first_fourthMotionClosing, motionTiming2);
+// };
 //--------------------------------------------------------------------
 
 let menuStatus = 'closed';
@@ -95,6 +128,8 @@ burger.addEventListener('click', burgerOps);
 
 function burgerOps() {
     
+    
+
     if (visualViewport.width >= 781) {
         headerMenu.style.transform = 'translateY(0)';
         menuStatus = 'closed';
@@ -103,7 +138,7 @@ function burgerOps() {
                 headerMenu.style.transform = 'translateY(77px)';
                 headerMenu.style.transition = 'all 1.5s ease-in-out'; //
                             
-                openMotion();
+                openMotion(1500, 700);
                 
             } else if (visualViewport.width <= 450) {
                 headerMenu.style.transform = 'translateY(55px)';
@@ -114,7 +149,7 @@ function burgerOps() {
             document.body.style.overflow = 'hidden';
             // container.classList.add('_blocked');
             
-            openMotion();
+            openMotion(1500, 700);
            
             } else if (menuStatus === "opened") {
             document.body.style.overflow = 'auto';
@@ -122,7 +157,7 @@ function burgerOps() {
             headerMenu.style.transform = 'translateY(-500%)';
             headerMenu.style.transition = 'all 1.5s ease-in-out'; //
             
-            closeMotion();
+            closeMotion(1500, 700);
                 
             menuStatus = 'closed'
             }; 
@@ -131,34 +166,45 @@ function burgerOps() {
 
 // viewport resize check ---------------------------------------------------
 function recizeCheck() {
-    // checkWinRatio();
+    
+    
+
     if (visualViewport.width >= 781) {
         headerMenu.style.transition = 'none'; //
         headerMenu.style.transform = 'translateY(0)';
         
-        closeMotion();
+
+        closeMotion(0, 0);
 
         menuStatus = 'closed';
-    }   else if (visualViewport.width < 781 && menuStatus === "closed") {
+        }                   
+    
+    
+    
+        else if (visualViewport.width < 781 && menuStatus === "closed") {
             headerMenu.style.transition = 'none'; //  
             headerMenu.style.transform = 'translateY(-500%)';
             
-            closeMotion();
+                               
+            closeMotion(0, 0);
             
-            } else if (menuStatus === "opened" && visualViewport.width < 781 && visualViewport.width > 450) {
+            } 
+            else if (menuStatus === "opened" && visualViewport.width < 781 && visualViewport.width > 450) {
                 
                 headerMenu.style.transition = 'none'; //
                 headerMenu.style.transform = 'translateY(77px)';
                 
-                openMotion(); 
+                //openMotion(); 
                 
                 } else if (menuStatus === "opened" && visualViewport.width <= 450) {
-                                        headerMenu.style.transition = 'none'; //
+                    headerMenu.style.transition = 'none'; //
                     headerMenu.style.transform = 'translateY(55px)';
                     
-                    openMotion();
+                    //openMotion();
                      
                 };
+    
+   
 };
 
 // low height check --------------------------------------------------------------
