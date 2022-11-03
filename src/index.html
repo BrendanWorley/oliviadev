@@ -11,12 +11,12 @@
         <body>
             <div class="wrapper">
                 <div class="header">
-                    <p class="header__title">Olivia Park</p>
+                    <a data-goto=".op2022" class="header__title link" href="#">Olivia Park</a>
                     <ul class="header__menu">
-                        <li ><a href="#">About us</a></li>
-                        <li ><a href="#">Menue</a></li>
-                        <li ><a href="#">Gallery</a></li>
-                        <li ><a href="#">Contact us</a></li>
+                        <li ><a class="link" data-goto=".ourStory" href="#">About us</a></li>
+                        <li ><a class="link" data-goto=".menu" href="#">Menue</a></li>
+                        <li ><a class="link" data-goto=".catering" href="#">Catering</a></li>
+                        <li ><a class="link" data-goto=".footer__contacts__p" href="#">Contact us</a></li>
                     </ul>
                     <div class="header__burger">
                         <ul class="header_burger_container">
@@ -38,7 +38,7 @@
                             <p class="op2022__title__line2">Olivia Park</p>
                             <p class="op2022__title__line3">restaurant</p>
                             <div class="op2022__title__button">book table
-                                <div class="op2022__title__button_shadow"></div>
+                                <div id="bookTable" data-goto=".chefs" class="op2022__title__button_shadow link"></div>
                             </div>
                         </div>
                     </div>
@@ -156,6 +156,7 @@
                             <div class="footer__contacts__skype"><a href="https://web.skype.com" target="_blank"></a></div>
                             <div class="footer__contacts__p"><a href="https://pinterest.it" target="_blank"></a></div>
                         </div>
+                        <p class="footer__copyrights">Designed by dribble.com/Inhens</p>
                     </div>
                     <img class="footer__decor" src="images/decorFlipped.png">
                 </footer>   

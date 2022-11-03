@@ -175,6 +175,7 @@ function recizeCheck() {
         
 
         closeMotion(0, 0);
+        document.body.style.overflow = 'auto';
 
         menuStatus = 'closed';
         }                   
@@ -187,7 +188,7 @@ function recizeCheck() {
             
                                
             closeMotion(0, 0);
-            
+            document.body.style.overflow = 'auto';
             } 
             else if (menuStatus === "opened" && visualViewport.width < 781 && visualViewport.width > 450) {
                 
@@ -265,14 +266,64 @@ burgerContainer.addEventListener('mouseover', () => {
 
 const bookTableShadow = document.querySelector('.op2022__title__button_shadow');
 
+
 bookTableShadow.addEventListener('click', () => {
     
     bookTableShadow.animate([
         {scale: 1, opacity: 0, easing: 'ease-out'},
         {scale: 1.9, opacity: 0.20, easing: 'ease-out'},
         {scale: 1.91, opacity: 0, easing: 'ease-out'},
-    ], 600);
+        ], 600);
 
 });
+
+// menu links forwarding -------------------------------------------------------------
+const menuLInks = document.querySelectorAll(".link[data-goto]");
+const extraLInk = document.querySelector('.op2022__title__button');
+
+console.log(menuLInks);
+
+if (menuLInks.length > 0) {
+    menuLInks.forEach(menuLInk => {
+        menuLInk.addEventListener('click', onMenuClick);
+    });
+    function onMenuClick(e) {
+        const clickHolder = e.target;
+        if (clickHolder.dataset.goto && document.querySelector(clickHolder.dataset.goto)) {
+            const gotoBlock = document.querySelector(clickHolder.dataset.goto);
+            const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset - document.querySelector('.header').offsetHeight;
+
+            // closing dropout menu---------------
+            if (visualViewport.width >= 781) {
+                headerMenu.style.transition = 'none'; //
+                headerMenu.style.transform = 'translateY(0)';
+                
+        
+                closeMotion(0, 0);
+                document.body.style.overflow = 'auto';
+        
+                menuStatus = 'closed';
+                } else  {
+                    headerMenu.style.transition = 'none'; //  
+                    headerMenu.style.transform = 'translateY(-500%)';
+                                  
+                    closeMotion(0, 0);
+                    document.body.style.overflow = 'auto';
+                    menuStatus = 'closed';
+                    }; 
+                    
+            //-----------------------------------
+            
+            
+
+            window.scrollTo({
+                top: gotoBlockValue,
+                behavior: 'smooth',
+            });
+            e.preventDefault();
+        
+        }
+    }
+}
 
 
