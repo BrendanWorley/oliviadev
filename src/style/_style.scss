@@ -147,6 +147,7 @@ body {
     max-width: 1440px;
     max-height: 1024px;
     background-image: url('./images/main_picture.jpg');
+    
     width: 100vw;
     height: 71.4vw;
     display: flex;
@@ -295,8 +296,9 @@ body {
     // max-height: 45vh;
     background-image: url('images/sandwich.png');
     background-repeat: no-repeat;
-    background-position: bottom;
-    background-size:  228vh, 120vh;
+    background-position: 50%;
+    //background-size:  228vh, 120vh;
+    background-size: 150%;
     width: 100%;
     height: 50vh;
     background-attachment: fixed;
@@ -666,6 +668,10 @@ footer {
 
 @media (max-width: 1250px) {
     
+    .sandwich {
+        background-size: 160%;
+    } // recently added
+    
     .ourStory {
 
         .ourStory__pic {
@@ -766,6 +772,11 @@ footer {
 
 @media (max-width: 950px) {
     
+    .sandwich {
+        background-size: 185%;
+    } // recently added
+
+
     .range {
         background-size: 150vw;
         
@@ -773,6 +784,7 @@ footer {
     
     .header__menu {
         min-width: 50%;
+        
     }
 
     .op2022__decorAward__decor {
@@ -786,6 +798,10 @@ footer {
 }
 
 @media (max-width: 850px) {
+    .sandwich {
+        background-size: 205%;
+    } // recently added
+    
     .op2022__decorAward__decor {
         transform: translateX(-50%) translateY(15%);
     }
@@ -804,6 +820,7 @@ footer {
     .sandwich {
 
         background-position: 60%;
+        background-size: 265%;
         height: 35vh;
 
 
@@ -978,7 +995,7 @@ footer {
         margin-right: 0;
         transform: translateY(-100%);
         flex-wrap: wrap;
-        
+        padding-bottom: 35vh;
         opacity: 1.0;
         
         
@@ -989,7 +1006,8 @@ footer {
             //height: calc($menu_height1 / 6);
         
             font-size: $menu_font_size;
-            text-align: center;
+            text-align: right;
+            padding-right: 20%;
             //padding-top: calc(($menu_height1 / 8) - ($menu_font_size / 2));
             
         }
@@ -1014,9 +1032,14 @@ footer {
 }
 
 @media (max-width: 600px) {
+    .sandwich {
+        background-size: 365%;
+    } // recently added
+
 
     footer {
         padding-left: 5%;
+        padding-bottom: 40px;
     }
     
     .smallOp2022 {
@@ -1191,7 +1214,8 @@ footer {
     
     .sandwich {
         height: 50vh;
-        background-size: 190vh, 100vh;
+        //background-size: 190vh, 100vh;
+        background-size: 440%;
     };
     
     .ourStory {
